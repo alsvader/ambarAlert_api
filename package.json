@@ -1,0 +1,42 @@
+{
+  "name": "ambar-alert-api",
+  "version": "1.0.0",
+  "description": "This is the api for the amber alert app",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon -L --exec babel-node index.js",
+    "eslint": "eslint .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "pre-commit": "eslint",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alsvader/ambarAlert_api.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/alsvader/ambarAlert_api/issues"
+  },
+  "homepage": "https://github.com/alsvader/ambarAlert_api#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mariadb": "^2.1.5",
+    "sequelize": "^5.21.3"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.8.3",
+    "@babel/node": "^7.8.3",
+    "@babel/preset-env": "^7.8.3",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-prettier": "^3.1.2",
+    "morgan": "^1.9.1",
+    "nodemon": "^2.0.2",
+    "pre-commit": "^1.2.2",
+    "prettier": "^1.19.1"
+  }
+}
