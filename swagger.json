@@ -1,0 +1,22 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Amber Alert API",
+    "description": "This is the api for the amber alert app",
+    "version": "1.0.0"
+  },
+  "paths": {
+    "/heartbeat": {
+      "get": {
+        "tags": ["Hearbeat"],
+        "description": "Heartbeat of the api",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    }
+  }
+}
