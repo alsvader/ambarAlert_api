@@ -11,6 +11,10 @@ const rol = (sequelize, DataTypes) => {
       defaultValue: false
     }
   });
+
+  Rol.associate = models => {
+    Rol.hasMany(models.Usuario);
+  };
   return Rol;
 };
 
