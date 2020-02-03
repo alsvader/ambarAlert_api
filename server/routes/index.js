@@ -1,16 +1,13 @@
 import { Router } from 'express';
-import logger from '../config/logger';
-import models from '../models';
+import inputValidation from '../middlewares/inputValidation';
+import { user } from '../controllers';
 
 const router = Router();
 
 router.get('/heartbeat', async (req, res) => {
-  try {
-    const roles = await models.Rol.findAll();
-    res.send(roles);
-  } catch (error) {
-    logger.error('This a test using winston');
-  }
+  res.send('Heartbeat');
 });
+
+router.route('/user').post(inputValidation('userSchema'), user.createUser);
 
 export default router;
