@@ -23,3 +23,9 @@
 {"level":"error"}
 {"level":"error"}
 {"level":"error"}
+{"_original":{"email":"","password":""},"details":[{"message":"\"email\" is not allowed to be empty","path":["email"],"type":"string.empty","context":{"label":"email","value":"","key":"email"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":""},"details":[{"message":"\"password\" is not allowed to be empty","path":["password"],"type":"string.empty","context":{"label":"password","value":"","key":"password"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":"asdasd"},"details":[{"message":"\"password\" length must be at least 8 characters long","path":["password"],"type":"string.min","context":{"limit":8,"value":"asdasd","label":"password","key":"password"}}],"level":"error"}
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error"}
+{"level":"error"}
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error"}

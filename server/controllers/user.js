@@ -41,13 +41,37 @@ const createUser = async (req, res) => {
   }
 };
 
-const loggin = async (req, res) => {
+const login = async (req, res) => {
   try {
-    res.send('loggin testing');
+    const { body } = req;
+
+    const user = await models.Usuario.findOne({
+      where: {
+        email: body.email
+      }
+    });
+
+    if (!user) res.status(400).send('User not found');
+
+    const isSamePass = await bcrypt.compare(body.password, user.passwd);
+
+    if (!isSamePass) res.status(500).send('Email or password incorrect');
+
+    user.lastLogin = new Date();
+    user.save();
+
+    const response = {
+      email: user.email,
+      numCelular: user.numCelular,
+      rolId: user.rolId,
+      lastLogin: user.lastLogin
+    };
+
+    res.send(response);
   } catch (error) {
     logger.error(error);
     res.status(500).send('An internal server error occurred');
   }
 };
 
-export { createUser, loggin };
+export { createUser, login };
