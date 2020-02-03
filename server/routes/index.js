@@ -10,4 +10,6 @@ router.get('/heartbeat', async (req, res) => {
 
 router.route('/user').post(inputValidation('userSchema'), user.createUser);
 
+router.post('/loggin', inputValidation('userSchema'), user.loggin);
+
 export default router;

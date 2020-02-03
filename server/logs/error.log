@@ -19,3 +19,7 @@
 {"message":"Invalid schema name: userSchemas","level":"error"}
 {"_original":{"email":"alsvader@hotmail.com","password":"htcplosa9304","numCelular":"alsdfgnhjt"},"details":[{"message":"\"numCelular\" with value \"alsdfgnhjt\" fails to match the required pattern: /^[0-9]+$/","path":["numCelular"],"type":"string.pattern.base","context":{"regex":{},"value":"alsdfgnhjt","label":"numCelular","key":"numCelular"}}],"level":"error"}
 {"_original":{"email":"alsvader@hotmail.com","password":"asd","numCelular":"5588063606"},"details":[{"message":"\"password\" length must be at least 8 characters long","path":["password"],"type":"string.min","context":{"limit":8,"value":"asd","label":"password","key":"password"}}],"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
