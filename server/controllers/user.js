@@ -96,4 +96,29 @@ const login = async (req, res) => {
   }
 };
 
-export { createUser, login };
+const validateCode = async (req, res) => {
+  try {
+    const { body } = req;
+
+    const user = await models.Usuario.findOne({
+      where: {
+        id: body.userId
+      }
+    });
+
+    if (!user) return res.status(404).send('User not found');
+
+    if (body.code !== user.codigoConfirmacion)
+      return res.status(404).send('The code you provided is not valid');
+
+    user.codigoConfirmacion = null;
+    user.save();
+
+    res.send('Code confirmation validated');
+  } catch (error) {
+    logger.error(error);
+    res.status(500).send('An internal server error occurred');
+  }
+};
+
+export { createUser, login, validateCode };

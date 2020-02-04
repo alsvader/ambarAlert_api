@@ -12,4 +12,10 @@ router.route('/user').post(inputValidation('userSchema'), user.createUser);
 
 router.post('/login', inputValidation('loginSchema'), user.login);
 
+router.post(
+  '/login/validatecode',
+  inputValidation('validateCodeSchema'),
+  user.validateCode
+);
+
 export default router;
