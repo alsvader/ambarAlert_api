@@ -19,10 +19,6 @@ const usuario = (sequelize, DataTypes) => {
       type: DataTypes.STRING,
       allowNull: false
     },
-    salt: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
     codigoConfirmacion: {
       type: DataTypes.STRING,
       allowNull: true,

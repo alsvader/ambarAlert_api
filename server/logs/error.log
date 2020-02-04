@@ -1,1 +1,43 @@
 {"message":"This a test using winston","level":"error"}
+{"_original":{},"details":[{"message":"\"email\" is required","path":["email"],"type":"any.required","context":{"label":"email","key":"email"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":"htcplosa9304"},"details":[{"message":"\"numCelular\" is required","path":["numCelular"],"type":"any.required","context":{"label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":"htcplosa9304"},"details":[{"message":"\"numCelular\" is required","path":["numCelular"],"type":"any.required","context":{"label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":"htcplosa9304"},"details":[{"message":"\"numCelular\" is required","path":["numCelular"],"type":"any.required","context":{"label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":"htcplosa9304"},"details":[{"message":"\"numCelular\" is required","path":["numCelular"],"type":"any.required","context":{"label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":"htcplosa9304"},"details":[{"message":"\"numCelular\" is required","path":["numCelular"],"type":"any.required","context":{"label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":"htcplosa9304"},"details":[{"message":"\"numCelular\" is required","path":["numCelular"],"type":"any.required","context":{"label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com"},"details":[{"message":"\"password\" is required","path":["password"],"type":"any.required","context":{"label":"password","key":"password"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com"},"details":[{"message":"\"password\" is required","path":["password"],"type":"any.required","context":{"label":"password","key":"password"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":"htcplosa9304","numCelular":"5588063"},"details":[{"message":"\"numCelular\" length must be at least 10 characters long","path":["numCelular"],"type":"string.min","context":{"limit":10,"value":"5588063","label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":"htcplosa9304","numCelular":""},"details":[{"message":"\"numCelular\" is not allowed to be empty","path":["numCelular"],"type":"string.empty","context":{"label":"numCelular","value":"","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail","password":"htcplosa9304","numCelular":"5588063606"},"details":[{"message":"\"email\" must be a valid email","path":["email"],"type":"string.email","context":{"value":"alsvader@hotmail","invalids":["alsvader@hotmail"],"label":"email","key":"email"}}],"level":"error"}
+{"_original":{"email":"","password":"htcplosa9304","numCelular":"5588063606"},"details":[{"message":"\"email\" is not allowed to be empty","path":["email"],"type":"string.empty","context":{"label":"email","value":"","key":"email"}}],"level":"error"}
+{"_original":{"email":"","password":"htcplosa9304","numCelular":"5588063606"},"details":[{"message":"\"email\" is not allowed to be empty","path":["email"],"type":"string.empty","context":{"label":"email","value":"","key":"email"}}],"level":"error"}
+{"_original":{"email":"","password":"htcplosa9304","numCelular":"5588063606"},"details":[{"message":"\"email\" is not allowed to be empty","path":["email"],"type":"string.empty","context":{"label":"email","value":"","key":"email"}}],"level":"error"}
+{"message":"Invalid schema name: userSchemas","level":"error"}
+{"message":"Invalid schema name: userSchemas","level":"error"}
+{"message":"Invalid schema name: userSchemas","level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":"htcplosa9304","numCelular":"alsdfgnhjt"},"details":[{"message":"\"numCelular\" with value \"alsdfgnhjt\" fails to match the required pattern: /^[0-9]+$/","path":["numCelular"],"type":"string.pattern.base","context":{"regex":{},"value":"alsdfgnhjt","label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":"asd","numCelular":"5588063606"},"details":[{"message":"\"password\" length must be at least 8 characters long","path":["password"],"type":"string.min","context":{"limit":8,"value":"asd","label":"password","key":"password"}}],"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"_original":{"email":"","password":""},"details":[{"message":"\"email\" is not allowed to be empty","path":["email"],"type":"string.empty","context":{"label":"email","value":"","key":"email"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":""},"details":[{"message":"\"password\" is not allowed to be empty","path":["password"],"type":"string.empty","context":{"label":"password","value":"","key":"password"}}],"level":"error"}
+{"_original":{"email":"alsvader@hotmail.com","password":"asdasd"},"details":[{"message":"\"password\" length must be at least 8 characters long","path":["password"],"type":"string.min","context":{"limit":8,"value":"asdasd","label":"password","key":"password"}}],"level":"error"}
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error"}
+{"level":"error"}
+{"code":"ERR_HTTP_HEADERS_SENT","level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"_original":{"code":"12345"},"details":[{"message":"\"userId\" is required","path":["userId"],"type":"any.required","context":{"label":"userId","key":"userId"}}],"level":"error"}
+{"_original":{"userId":1,"code":"123534"},"details":[{"message":"\"code\" length must be less than or equal to 5 characters long","path":["code"],"type":"string.max","context":{"limit":5,"value":"123534","label":"code","key":"code"}}],"level":"error"}
+{"_original":{"userId":1,"code":""},"details":[{"message":"\"code\" is not allowed to be empty","path":["code"],"type":"string.empty","context":{"label":"code","value":"","key":"code"}}],"level":"error"}
+{"_original":{"userId":1},"details":[{"message":"\"code\" is required","path":["code"],"type":"any.required","context":{"label":"code","key":"code"}}],"level":"error"}
+{"_original":{"userId":1,"code":"asdfre"},"details":[{"message":"\"code\" length must be less than or equal to 5 characters long","path":["code"],"type":"string.max","context":{"limit":5,"value":"asdfre","label":"code","key":"code"}}],"level":"error"}
+{"_original":{"userId":1,"code":"asdfr"},"details":[{"message":"\"code\" with value \"asdfr\" fails to match the required pattern: /^[0-9]+$/","path":["code"],"type":"string.pattern.base","context":{"regex":{},"value":"asdfr","label":"code","key":"code"}}],"level":"error"}
+{"_original":{"userId":1,"code":"as1fr"},"details":[{"message":"\"code\" with value \"as1fr\" fails to match the required pattern: /^[0-9]+$/","path":["code"],"type":"string.pattern.base","context":{"regex":{},"value":"as1fr","label":"code","key":"code"}}],"level":"error"}
