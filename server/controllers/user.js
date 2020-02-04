@@ -1,6 +1,8 @@
 import bcrypt from 'bcrypt';
+import phoneNumberToken from 'generate-sms-verification-code';
 import logger from '../config/logger';
 import models from '../models';
+import { getEmailTemplate, sendMail } from '../utils/email';
 
 const createUser = async (req, res) => {
   try {
@@ -57,10 +59,30 @@ const login = async (req, res) => {
 
     if (!isSamePass) res.status(500).send('Email or password incorrect');
 
+    let generatedToken = phoneNumberToken(5);
+
+    if (generatedToken.length < 5) {
+      generatedToken += Math.floor(Math.random() * 10);
+    }
+
+    const content = `
+      <p>Tu código de confirmación es:</p>
+      <h2>${generatedToken}</h2>
+    `;
+
+    const emailTemplate = await getEmailTemplate(content, 'email');
+    await sendMail(
+      user.email,
+      'Alerta amber - Código de confirmación',
+      emailTemplate
+    );
+
     user.lastLogin = new Date();
+    user.codigoConfirmacion = generatedToken;
     user.save();
 
     const response = {
+      id: user.id,
       email: user.email,
       numCelular: user.numCelular,
       rolId: user.rolId,
