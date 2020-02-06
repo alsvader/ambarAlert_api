@@ -1,0 +1,10 @@
+paths:
+  /heartbeat:
+    get:
+      tags:
+        - Heartbeat
+      summary: Prueba API
+      description: Permite saber si el API está activo o no
+      responses:
+        '200':
+          description: Heartbeat
