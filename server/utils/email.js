@@ -53,7 +53,6 @@ const sendMail = async (emailTo, subject, body, attachments = []) => {
     };
 
     const info = await transport.sendMail(mailOptions);
-    logger.info(info);
 
     logger.info(`Message sent: ${info.messageId}`);
 
