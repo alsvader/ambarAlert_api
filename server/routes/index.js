@@ -18,4 +18,10 @@ router.post(
   user.validateCode
 );
 
+router.post(
+  '/user/:userId/changepassword',
+  inputValidation('changePassword'),
+  user.changePassword
+);
+
 export default router;

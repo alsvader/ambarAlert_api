@@ -121,4 +121,33 @@ const validateCode = async (req, res) => {
   }
 };
 
-export { createUser, login, validateCode };
+const changePassword = async (req, res) => {
+  try {
+    const { body, params } = req;
+
+    const user = await models.Usuario.findOne({
+      where: {
+        id: params.userId,
+        statusDeleted: false
+      }
+    });
+
+    if (!user) return res.status(404).send('User not found');
+
+    const isSamePass = await bcrypt.compare(body.currentPassword, user.passwd);
+
+    if (!isSamePass) res.status(500).send('Password is not valid');
+
+    const hash = await bcrypt.hash(body.newPassword, 10);
+
+    user.passwd = hash;
+    user.save();
+
+    res.send('Password has been changed');
+  } catch (error) {
+    logger.error(error);
+    res.status(500).send('An internal server error occurred');
+  }
+};
+
+export { createUser, login, validateCode, changePassword };
