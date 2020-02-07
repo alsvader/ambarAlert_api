@@ -1,0 +1,64 @@
+paths:
+  /user:
+    post:
+      tags:
+        - Usuario
+      summary: Creación de usuario
+      description: Permite crear un nuevo usuario
+      requestBody:
+        description: Usuario para agregar
+        content:
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/UserRequestBody"
+            examples:
+              user:
+                value:
+                  email: email@example.com
+                  password: "*********"
+                  numCelular: "5588063606"
+      responses:
+        "200":
+          description: Usuario creado
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/User"
+        "400":
+          description: Correo electrónico repetido
+          content:
+            "text/html":
+              example: El correo electrónico ya está en uso
+        "500":
+          description: Error interno del servidor
+          content:
+            "text/html":
+              example: An internal server error occurred
+components:
+  schemas:
+    UserRequestBody:
+      type: object
+      required:
+        - email
+        - password
+        - numCelular
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+        numCelular:
+          type: string
+    User:
+      type: object
+      properties:
+        id:
+          type: integer
+        rolId:
+          type: integer
+        email:
+          type: string
+        numCelular:
+          type: string
+        lastLogin:
+          type: string

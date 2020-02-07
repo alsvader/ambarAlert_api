@@ -31,6 +31,7 @@ const createUser = async (req, res) => {
     });
 
     const response = {
+      id: user.id,
       email: user.email,
       numCelular: user.numCelular,
       rolId: user.rolId,
@@ -109,7 +110,7 @@ const validateCode = async (req, res) => {
     if (!user) return res.status(404).send('User not found');
 
     if (body.code !== user.codigoConfirmacion)
-      return res.status(404).send('The code you provided is not valid');
+      return res.status(400).send('The code you provided is not valid');
 
     user.codigoConfirmacion = null;
     user.save();

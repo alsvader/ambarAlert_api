@@ -1,0 +1,149 @@
+paths:
+  /login:
+    post:
+      tags:
+        - Usuario
+      summary: Inicio de sesión
+      description: Permite el inicio de sesión de un usuario
+      requestBody:
+        description: Correo y contraseña del usuario
+        content:
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/LoginRequestBody"
+              examples:
+                login:
+                  value:
+                    email: email@example.com
+                    password: "*********"
+      responses:
+        "200":
+          description: Usuario que inició sesión
+          content:
+            "application/json":
+              schema:
+                $ref: "#/components/schemas/User"
+        "404":
+          description: El usuario no existe
+          content:
+            "text/html":
+              example: Usuario no encontrado
+        "500":
+          description: Error interno del servido
+          content:
+            "text/html":
+              example: An internal server error occured
+  /login/validatecode:
+    post:
+      tags:
+        - Usuario
+      summary: Validar código de confirmación
+      description: Permite validar el código de confirmación que se genera para el usuario al iniciar sesión (verificación en dos pasos)
+      requestBody:
+        description: Idenficador del usuario y código a validar
+        content:
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/validateCodeRequestBody"
+            examples:
+              codeBody:
+                value:
+                  userId: 1
+                  code: "18890"
+      responses:
+        "200":
+          description: Código validado correctamente
+          content:
+            "text/html":
+              example: Código de confirmación validado
+        "400":
+          description: El código enviado no es válido
+          content:
+            "text/html":
+              example: Código no válido
+        "404":
+          description: Usuario no encontrado
+          content:
+            "text/html":
+              example: Usuario no encontrado
+        "500":
+          description: Error interno del servido
+          content:
+            "text/html":
+              example: An internal server error occured
+  /user/{userId}/changepassword:
+    post:
+      tags:
+        - Usuario
+      summary: Cambiar contraseña
+      description: Permite cambiar la contraseña de un usuario
+      parameters:
+        - name: userId
+          in: path
+          description: Identificador del usuario
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        description: Contraseña actual y nueva del usuario
+        content:
+          "application/json":
+            schema:
+              $ref: "#/components/schemas/changePasswordRequestBody"
+            examples:
+              changePasswordBody:
+                value:
+                  currentPassword: "*******"
+                  newPassword: "*******"
+                  repeatPassword: "*******"
+      responses:
+        "200":
+          description: Operación exitosa
+          content:
+            "text/html":
+              example: Su contraseña ha sido cambiada
+        "404":
+          description: Usuario no encontrado
+          content:
+            "text/html":
+              example: Usuario no encontrado
+        "500":
+          description: Error interno del servido
+          content:
+            "text/html":
+              example: An internal server error occured
+components:
+  schemas:
+    LoginRequestBody:
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      required:
+        - email
+        - password
+    validateCodeRequestBody:
+      type: object
+      properties:
+        userId:
+          type: integer
+        code:
+          type: string
+      required:
+        - userId
+        - code
+    changePasswordRequestBody:
+      type: object
+      properties:
+        currentPassword:
+          type: string
+        newPassword:
+          type: string
+        repeatPassword:
+          type: string
+      required:
+        - currentPassword
+        - newPassword
+        - repeatPassword
