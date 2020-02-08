@@ -24,4 +24,6 @@ router.post(
   user.changePassword
 );
 
+router.put('/user/:userId', inputValidation('updateUser'), user.updateUser);
+
 export default router;
