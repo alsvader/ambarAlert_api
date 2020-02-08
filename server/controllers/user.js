@@ -151,4 +151,73 @@ const changePassword = async (req, res) => {
   }
 };
 
-export { createUser, login, validateCode, changePassword };
+const updateUser = async (req, res) => {
+  try {
+    const { body, params } = req;
+
+    const user = await models.Usuario.findOne({
+      include: [
+        {
+          model: models.Persona
+        }
+      ],
+      where: {
+        id: params.userId,
+        statusDeleted: false
+      }
+    });
+
+    if (!user) return res.status(404).send('User not found');
+
+    const municipio = await models.Municipio.findByPk(body.municipioId);
+
+    if (!municipio) return res.status(404).send('Municipio not found');
+
+    const email = body.email === undefined ? null : body.email;
+    const numCelular = body.numCelular === undefined ? null : body.numCelular;
+
+    if (user.email !== email) {
+      const emailIsUsed = await models.Usuario.findOne({
+        where: { email }
+      });
+
+      if (emailIsUsed)
+        return res
+          .status(409)
+          .send('You cannot use the same email for two users');
+    }
+
+    user.email = email !== null ? email : user.email;
+    user.numCelular = numCelular !== null ? numCelular : user.numCelular;
+    await user.save();
+
+    if (user.persona === null) {
+      await models.Persona.create({
+        id: user.id,
+        municipioId: body.municipioId,
+        nombre: body.nombre,
+        apPaterno: body.apPaterno,
+        apMaterno: body.apMaterno,
+        direccion: body.direccion
+      });
+    } else {
+      await models.Persona.update(
+        {
+          municipioId: body.municipioId,
+          nombre: body.nombre,
+          apPaterno: body.apPaterno,
+          apMaterno: body.apMaterno,
+          direccion: body.direccion
+        },
+        { where: { id: user.id } }
+      );
+    }
+
+    res.send('User has been updated');
+  } catch (error) {
+    logger.error(error);
+    res.status(500).send('An internal server error occurred');
+  }
+};
+
+export { createUser, login, validateCode, changePassword, updateUser };

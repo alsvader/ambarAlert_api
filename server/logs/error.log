@@ -56,3 +56,17 @@
 {"code":"ERR_HTTP_HEADERS_SENT","level":"error"}
 {"code":"ERR_HTTP_HEADERS_SENT","level":"error"}
 {"code":"ERR_HTTP_HEADERS_SENT","level":"error"}
+{"_original":{"municipioId":1,"nombre":"","apPaterno":"","apMaterno":"","direccion":"","email":"","numCelular":""},"details":[{"message":"\"nombre\" is not allowed to be empty","path":["nombre"],"type":"string.empty","context":{"label":"nombre","value":"","key":"nombre"}}],"level":"error"}
+{"_original":{"municipioId":1,"nombre":"aaron","apPaterno":"lopez","apMaterno":"sosa","direccion":"vanadio 222","email":"","numCelular":""},"details":[{"message":"\"email\" is not allowed to be empty","path":["email"],"type":"string.empty","context":{"label":"email","value":"","key":"email"}}],"level":"error"}
+{"_original":{"municipioId":1,"nombre":"aaron","apPaterno":"lopez","apMaterno":"sosa","direccion":"vanadio 222","email":"","numCelular":""},"details":[{"message":"\"email\" is not allowed to be empty","path":["email"],"type":"string.empty","context":{"label":"email","value":"","key":"email"}}],"level":"error"}
+{"_original":{"municipioId":1,"apPaterno":"lopez","apMaterno":"sosa","direccion":"Morelos #33","email":"alsvader@hotmail.com","numCelular":"5588063606"},"details":[{"message":"\"nombre\" is required","path":["nombre"],"type":"any.required","context":{"label":"nombre","key":"nombre"}}],"level":"error"}
+{"_original":{"municipioId":1,"nombre":"aaron","apMaterno":"sosa","direccion":"Morelos #33","email":"alsvader@hotmail.com","numCelular":"5588063606"},"details":[{"message":"\"apPaterno\" is required","path":["apPaterno"],"type":"any.required","context":{"label":"apPaterno","key":"apPaterno"}}],"level":"error"}
+{"_original":{"municipioId":1,"nombre":"aaron","apPaterno":"lopez","direccion":"Morelos #33","email":"alsvader@hotmail.com","numCelular":"5588063606"},"details":[{"message":"\"apMaterno\" is required","path":["apMaterno"],"type":"any.required","context":{"label":"apMaterno","key":"apMaterno"}}],"level":"error"}
+{"_original":{"municipioId":1,"nombre":"aaron","apPaterno":"lopez","apMaterno":"sosa","email":"alsvader@hotmail.com","numCelular":"5588063606"},"details":[{"message":"\"direccion\" is required","path":["direccion"],"type":"any.required","context":{"label":"direccion","key":"direccion"}}],"level":"error"}
+{"_original":{"nombre":"aaron","apPaterno":"lopez","apMaterno":"sosa","direccion":"Morelos #33","email":"alsvader@hotmail.com","numCelular":"5588063606"},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
