@@ -42,7 +42,7 @@ const hijo = (sequelize, DataTypes) => {
     },
     estatus: {
       type: DataTypes.ENUM(['OK', 'DESAPARECIDO']),
-      allowNull: false,
+      allowNull: true,
       defaultValue: 'OK'
     },
     curp: {
