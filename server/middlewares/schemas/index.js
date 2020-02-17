@@ -3,6 +3,7 @@ import loginSchema from './loginSchema';
 import validateCodeSchema from './validateCodeSchema';
 import changePassword from './changePassword';
 import updateUser from './updateUser';
+import childSchema from './childSchema';
 
 const chooseSchema = schema => {
   let val = null;
@@ -21,6 +22,9 @@ const chooseSchema = schema => {
       break;
     case 'updateUser':
       val = updateUser;
+      break;
+    case 'childSchema':
+      val = childSchema;
       break;
     default:
       val = null;

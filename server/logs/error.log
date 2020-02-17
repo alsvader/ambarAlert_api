@@ -70,3 +70,6 @@
 {"level":"error"}
 {"level":"error"}
 {"level":"error"}
+{"_original":{"idPadre":11,"idCabello":1,"idOjos":1,"nombre":"nombre","apPaterno":"paterno","apMaterno":"materno","fechaNacimiento":"2020-02-16","genero":"Hombre","estatura":"1.78","peso":"80","discapacidad":"Ninguna","padecimiento":"Ninguno","seniaParticular":"Es delgado"},"details":[{"message":"\"idCabello\" failed custom validation because Cannot read property 'presence' of undefined","path":["idCabello"],"type":"any.custom","context":{"error":{},"label":"idCabello","value":1,"key":"idCabello"}}],"level":"error"}
+{"errno":-2,"code":"ENOENT","syscall":"unlink","path":"/Users/mac/Documents/proyectos/ambarAlert_api/server/public/uploads/e354e880-5144-11ea-baa8-effbe32c1cf9.pdf","level":"error"}
+{"errno":-2,"code":"ENOENT","syscall":"unlink","path":"/Users/mac/Documents/proyectos/ambarAlert_api/server/public/uploads/e354e880-5144-11ea-baa8-effbe32c1cf9.pdf","level":"error"}

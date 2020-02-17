@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import inputValidation from '../middlewares/inputValidation';
-import { user } from '../controllers';
+import { user, child } from '../controllers';
+import { pdfUpload, imageUpload } from '../config/multerConf';
 
 const router = Router();
 
@@ -25,5 +26,19 @@ router.post(
 );
 
 router.put('/user/:userId', inputValidation('updateUser'), user.updateUser);
+
+router.post('/child', inputValidation('childSchema'), child.createChild);
+
+router
+  .route('/child/:childId')
+  .get(child.getById)
+  .post(inputValidation('childSchema'), child.updateChild)
+  .delete(child.deleteChild);
+
+router.post('/child/:childId/acta', pdfUpload, child.uploadActa);
+
+router.post('/child/:childId/curp', pdfUpload, child.uploadCurp);
+
+router.post('/child/:childId/imgProfil', imageUpload, child.uploadProfile);
 
 export default router;
