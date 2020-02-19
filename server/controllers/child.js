@@ -262,6 +262,44 @@ const uploadProfile = async (req, res) => {
   }
 };
 
+const uploadGallery = async (req, res) => {
+  try {
+    const { params } = req;
+
+    const child = await models.Hijo.findOne({
+      where: {
+        id: params.childId,
+        statusDeleted: false
+      }
+    });
+
+    if (!child) {
+      req.files.forEach(async element => {
+        await fs.unlink(element.path);
+      });
+      return res.status(404).send('Child not found');
+    }
+
+    let i;
+    const results = [];
+    for (i = 0; i < req.files.length; i += 1) {
+      const image = models.FotosHijo.create({
+        foto: req.files[i].filename,
+        hijoId: params.childId
+      });
+      results.push(image);
+    }
+
+    const response = await Promise.all(results);
+    logger.info(JSON.stringify(response, {}, 2));
+
+    res.send(response);
+  } catch (error) {
+    logger.error(error);
+    res.status(500).send('An internal server error occurred');
+  }
+};
+
 export {
   getById,
   createChild,
@@ -269,5 +307,6 @@ export {
   deleteChild,
   uploadActa,
   uploadCurp,
-  uploadProfile
+  uploadProfile,
+  uploadGallery
 };
