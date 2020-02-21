@@ -19,7 +19,7 @@ db.authenticate()
 const server = express();
 server.use(morgan('dev'));
 server.use(express.json());
-server.use(cors);
+server.use(cors());
 server.use('/storage', express.static(path.join(__dirname, 'public/uploads')));
 server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 server.use('/api', routes);
