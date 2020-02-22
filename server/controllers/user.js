@@ -80,7 +80,7 @@ const login = async (req, res) => {
 
     user.lastLogin = new Date();
     user.codigoConfirmacion = generatedToken;
-    user.save();
+    await user.save();
 
     const response = {
       id: user.id,
@@ -113,7 +113,7 @@ const validateCode = async (req, res) => {
       return res.status(400).send('The code you provided is not valid');
 
     user.codigoConfirmacion = null;
-    user.save();
+    await user.save();
 
     res.send('Code confirmation validated');
   } catch (error) {
@@ -142,7 +142,7 @@ const changePassword = async (req, res) => {
     const hash = await bcrypt.hash(body.newPassword, 10);
 
     user.passwd = hash;
-    user.save();
+    await user.save();
 
     res.send('Password has been changed');
   } catch (error) {
@@ -183,7 +183,7 @@ const updateUser = async (req, res) => {
 
       if (emailIsUsed)
         return res
-          .status(409)
+          .status(400)
           .send('You cannot use the same email for two users');
     }
 
