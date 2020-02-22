@@ -74,3 +74,27 @@
 {"errno":-2,"code":"ENOENT","syscall":"unlink","path":"/Users/mac/Documents/proyectos/ambarAlert_api/server/public/uploads/e354e880-5144-11ea-baa8-effbe32c1cf9.pdf","level":"error"}
 {"errno":-2,"code":"ENOENT","syscall":"unlink","path":"/Users/mac/Documents/proyectos/ambarAlert_api/server/public/uploads/e354e880-5144-11ea-baa8-effbe32c1cf9.pdf","level":"error"}
 {"level":"error"}
+{"_original":{"email":"email@ejemploped.com","password":"admin","numCelular":"5588063606"},"details":[{"message":"\"password\" length must be at least 8 characters long","path":["password"],"type":"string.min","context":{"limit":8,"value":"admin","label":"password","key":"password"}}],"level":"error"}
+{"_original":{"email":"email@ejemplopedromr.com","password":"pedro","numCelular":"5588063606"},"details":[{"message":"\"password\" length must be at least 8 characters long","path":["password"],"type":"string.min","context":{"limit":8,"value":"pedro","label":"password","key":"password"}}],"level":"error"}
+{"_original":{"email":"email@ejemplopedromr.com","password":"pedro","numCelular":"5588063606"},"details":[{"message":"\"password\" length must be at least 8 characters long","path":["password"],"type":"string.min","context":{"limit":8,"value":"pedro","label":"password","key":"password"}}],"level":"error"}
+{"_original":{"email":"email@ejemplopedromr.com.mx","numCelular":123456789,"password":"pruebacontraseñaq123"},"details":[{"message":"\"numCelular\" must be a string","path":["numCelular"],"type":"string.base","context":{"label":"numCelular","value":123456789,"key":"numCelular"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"email\" is required","path":["email"],"type":"any.required","context":{"label":"email","key":"email"}}],"level":"error"}
+{"_original":{"email":"email@ejemplopedromr.com.mx","numCelular":"123456789","password":"pruebacontraseñaq123"},"details":[{"message":"\"numCelular\" length must be at least 10 characters long","path":["numCelular"],"type":"string.min","context":{"limit":10,"value":"123456789","label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"email@ejemplopedromr.com.mx","numCelular":"123456789","password":"pruebacontraseñaq123"},"details":[{"message":"\"numCelular\" length must be at least 10 characters long","path":["numCelular"],"type":"string.min","context":{"limit":10,"value":"123456789","label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"email@ejemplopedromr.com.mx","numCelular":"123456789","password":"pruebacontraseñaq123"},"details":[{"message":"\"numCelular\" length must be at least 10 characters long","path":["numCelular"],"type":"string.min","context":{"limit":10,"value":"123456789","label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"email@ejemplopedromr.com.mx","numCelular":"123456789","password":"pruebacontraseñaq123"},"details":[{"message":"\"numCelular\" length must be at least 10 characters long","path":["numCelular"],"type":"string.min","context":{"limit":10,"value":"123456789","label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"email@ejemplopedromr.com.mx","numCelular":"123456789","password":"pruebacontraseñaq123"},"details":[{"message":"\"numCelular\" length must be at least 10 characters long","path":["numCelular"],"type":"string.min","context":{"limit":10,"value":"123456789","label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"email@ejemplopedromr.com.mx","numCelular":"123456789","password":"pruebacontraseñaq123"},"details":[{"message":"\"numCelular\" length must be at least 10 characters long","path":["numCelular"],"type":"string.min","context":{"limit":10,"value":"123456789","label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"email@ejemplopedromr.com.mx","numCelular":"123456789","password":"pruebacontraseñaq123"},"details":[{"message":"\"numCelular\" length must be at least 10 characters long","path":["numCelular"],"type":"string.min","context":{"limit":10,"value":"123456789","label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"email@ejemplopedromr.com.mx","numCelular":"123456789","password":"pruebacontraseñaq123"},"details":[{"message":"\"numCelular\" length must be at least 10 characters long","path":["numCelular"],"type":"string.min","context":{"limit":10,"value":"123456789","label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"_original":{"email":"email@ejemplopedromr.com.mx","numCelular":"123456789","password":"pruebacontraseñaq123"},"details":[{"message":"\"numCelular\" length must be at least 10 characters long","path":["numCelular"],"type":"string.min","context":{"limit":10,"value":"123456789","label":"numCelular","key":"numCelular"}}],"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}

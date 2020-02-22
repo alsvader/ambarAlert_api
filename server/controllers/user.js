@@ -7,7 +7,6 @@ import { getEmailTemplate, sendMail } from '../utils/email';
 const createUser = async (req, res) => {
   try {
     const { body } = req;
-
     const saltRounds = 10;
     const hashPasword = await bcrypt.hash(body.password, saltRounds);
 
@@ -108,14 +107,13 @@ const validateCode = async (req, res) => {
     });
 
     if (!user) return res.status(404).send('User not found');
-
     if (body.code !== user.codigoConfirmacion)
       return res.status(400).send('The code you provided is not valid');
-
-    user.codigoConfirmacion = null;
-    user.save();
-
-    res.send('Code confirmation validated');
+    
+      user.codigoConfirmacion = null;
+      await user.save();
+    
+    res.send(true);
   } catch (error) {
     logger.error(error);
     res.status(500).send('An internal server error occurred');
