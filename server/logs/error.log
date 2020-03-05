@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {"message":"This a test using winston","level":"error"}
 {"_original":{},"details":[{"message":"\"email\" is required","path":["email"],"type":"any.required","context":{"label":"email","key":"email"}}],"level":"error"}
 {"_original":{"email":"alsvader@hotmail.com","password":"htcplosa9304"},"details":[{"message":"\"numCelular\" is required","path":["numCelular"],"type":"any.required","context":{"label":"numCelular","key":"numCelular"}}],"level":"error"}
@@ -98,3 +99,5 @@
 {"level":"error"}
 {"level":"error"}
 {"level":"error"}
+=======
+>>>>>>> 5a2da57f74c833678ca98ab06dda2a61751c1e29

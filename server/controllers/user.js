@@ -48,10 +48,20 @@ const login = async (req, res) => {
     const { body } = req;
 
     const user = await models.Usuario.findOne({
+      include: [
+        {
+          model: models.Hijo,
+          include: {
+            model: models.FotosHijo
+          }
+        }
+      ],
       where: {
         email: body.email
       }
     });
+
+    logger.info(JSON.stringify(user));
 
     if (!user) res.status(400).send('User not found');
 
@@ -86,7 +96,8 @@ const login = async (req, res) => {
       email: user.email,
       numCelular: user.numCelular,
       rolId: user.rolId,
-      lastLogin: user.lastLogin
+      lastLogin: user.lastLogin,
+      children: user.hijos
     };
 
     res.send(response);
