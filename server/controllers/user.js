@@ -6,7 +6,7 @@ import { getEmailTemplate, sendMail } from '../utils/email';
 
 const createUser = async (req, res) => {
   try {
-    const { body } = req;
+    const { body } = req; 
     const saltRounds = 10;
     const hashPasword = await bcrypt.hash(body.password, saltRounds);
 
@@ -28,7 +28,7 @@ const createUser = async (req, res) => {
       lastLogin: new Date(),
       rolId: 2
     });
-
+console.log(user);
     const response = {
       id: user.id,
       email: user.email,
@@ -79,7 +79,7 @@ const login = async (req, res) => {
 
     user.lastLogin = new Date();
     user.codigoConfirmacion = generatedToken;
-    user.save();
+    await user.save();
 
     const response = {
       id: user.id,
@@ -97,6 +97,7 @@ const login = async (req, res) => {
 };
 
 const validateCode = async (req, res) => {
+  console.log(req);
   try {
     const { body } = req;
 
@@ -123,7 +124,7 @@ const validateCode = async (req, res) => {
 const changePassword = async (req, res) => {
   try {
     const { body, params } = req;
-
+console.log(params);
     const user = await models.Usuario.findOne({
       where: {
         id: params.userId,
@@ -140,19 +141,19 @@ const changePassword = async (req, res) => {
     const hash = await bcrypt.hash(body.newPassword, 10);
 
     user.passwd = hash;
-    user.save();
+    await user.save();
 
-    res.send('Password has been changed');
+    res.send(true);
   } catch (error) {
     logger.error(error);
     res.status(500).send('An internal server error occurred');
   }
 };
 
-const updateUser = async (req, res) => {
+const updateUser = async (req, res) => {  
   try {
     const { body, params } = req;
-
+    console.log(params);
     const user = await models.Usuario.findOne({
       include: [
         {
@@ -181,7 +182,7 @@ const updateUser = async (req, res) => {
 
       if (emailIsUsed)
         return res
-          .status(409)
+          .status(400)
           .send('You cannot use the same email for two users');
     }
 
@@ -211,11 +212,34 @@ const updateUser = async (req, res) => {
       );
     }
 
-    res.send('User has been updated');
+    res.send(true);
   } catch (error) {
     logger.error(error);
     res.status(500).send('An internal server error occurred');
   }
 };
 
-export { createUser, login, validateCode, changePassword, updateUser };
+const consultaPersona = async (req, res) => {
+ 
+  try {
+    const { body } = req;
+    const persona = await models.Persona.findOne({
+      where: {
+        id: body.userId
+      }
+    });    
+    const response = {
+      nombre: persona.nombre,
+      apPaterno: persona.apPaterno,
+      apMaterno: persona.apMaterno,
+      direccion: persona.direccion,
+      municipioId: persona.municipioId
+    };
+
+    res.send(response);
+  } catch (error) {
+    logger.error(error);
+    res.status(500).send(false);
+  }
+};
+export { createUser, login, validateCode, changePassword, updateUser, consultaPersona };

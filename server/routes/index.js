@@ -25,9 +25,11 @@ router.post(
   user.changePassword
 );
 
-router.put('/user/:userId', inputValidation('updateUser'), user.updateUser);
+router.post('/user/:userId', inputValidation('updateUser'), user.updateUser);
 
 router.post('/child', inputValidation('childSchema'), child.createChild);
+
+router.post('/child/mychilds', child.getMyChilds);
 
 router
   .route('/child/:childId')
@@ -42,5 +44,7 @@ router.post('/child/:childId/curp', pdfUpload, child.uploadCurp);
 router.post('/child/:childId/imgProfil', imageUpload, child.uploadProfile);
 
 router.post('/child/:childId/gallery', multipleUpload, child.uploadGallery);
+
+router.post('/persona', user.consultaPersona);
 
 export default router;

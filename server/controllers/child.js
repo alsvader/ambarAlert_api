@@ -131,7 +131,7 @@ const updateChild = async (req, res) => {
     child.catCabelloId = body.idCabello;
     child.catOjoId = body.idOjos;
     child.usuarioId = body.idPadre;
-    child.save();
+    await child.save();
 
     res.send('Child has been updated');
   } catch (error) {
@@ -154,7 +154,7 @@ const deleteChild = async (req, res) => {
     if (!child) return res.status(404).send('Child not found');
 
     child.statusDeleted = true;
-    child.save();
+    await child.save();
 
     res.send('Child has been deleted');
   } catch (error) {
@@ -189,7 +189,7 @@ const uploadActa = async (req, res) => {
     }
 
     child.actaNacimiento = req.file.filename;
-    child.save();
+    await child.save();
 
     res.send('uploaded');
   } catch (error) {
@@ -222,7 +222,7 @@ const uploadCurp = async (req, res) => {
     }
 
     child.curp = req.file.filename;
-    child.save();
+    await child.save();
 
     res.send('uploaded');
   } catch (error) {
@@ -253,7 +253,7 @@ const uploadProfile = async (req, res) => {
     }
 
     child.foto = req.file.filename;
-    child.save();
+    await child.save();
 
     res.send('uploaded');
   } catch (error) {
