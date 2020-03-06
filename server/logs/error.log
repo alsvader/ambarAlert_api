@@ -101,3 +101,10 @@
 {"level":"error"}
 =======
 >>>>>>> 5a2da57f74c833678ca98ab06dda2a61751c1e29
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}

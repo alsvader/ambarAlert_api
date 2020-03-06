@@ -29,7 +29,7 @@ router.post('/user/:userId', inputValidation('updateUser'), user.updateUser);
 
 router.post('/child', inputValidation('childSchema'), child.createChild);
 
-//router.post('/child/mychilds', child.getMyChilds);
+router.post('/child/mychilds', child.getMyChilds);
 
 router
   .route('/child/:childId')
@@ -45,6 +45,6 @@ router.post('/child/:childId/imgProfil', imageUpload, child.uploadProfile);
 
 router.post('/child/:childId/gallery', multipleUpload, child.uploadGallery);
 
-//router.post('/persona', user.consultaPersona);
+router.post('/persona', user.consultaPersona);
 
 export default router;
