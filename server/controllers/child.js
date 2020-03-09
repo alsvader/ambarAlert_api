@@ -265,7 +265,7 @@ const uploadProfile = async (req, res) => {
   try {
     const { params } = req;
 
-    const child = await models.Hijo.findOne({
+    let child = await models.Hijo.findOne({
       where: {
         id: params.childId,
         statusDeleted: false
@@ -273,7 +273,7 @@ const uploadProfile = async (req, res) => {
     });
 
     if (!child) {
-      const resolve = await fs.unlink(req.file.path);
+      let resolve = await fs.unlink(req.file.path);
       logger.info(resolve);
       return res.status(404).send('Child not found');
     }
@@ -286,7 +286,7 @@ const uploadProfile = async (req, res) => {
     console.log('guardar registros ', child);
     await child.save();
 
-    res.send('uploaded');
+    res.send(JSON.stringify({guardado:true}));
   } catch (error) {
     logger.error(error);
     res.status(500).send('An internal server error occurred');
@@ -296,7 +296,7 @@ const uploadProfile = async (req, res) => {
 const uploadGallery = async (req, res) => {
   try {
     const { params } = req;
-
+console.log(req);
     const child = await models.Hijo.findOne({
       where: {
         id: params.childId,

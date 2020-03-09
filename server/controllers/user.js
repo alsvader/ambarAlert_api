@@ -28,7 +28,6 @@ const createUser = async (req, res) => {
       lastLogin: new Date(),
       rolId: 2
     });
-console.log(user);
     const response = {
       id: user.id,
       email: user.email,
@@ -253,4 +252,19 @@ const consultaPersona = async (req, res) => {
     res.status(500).send(false);
   }
 };
-export { createUser, login, validateCode, changePassword, updateUser, consultaPersona };
+
+const consultaEstado = async (req, res) => {
+  try {      
+    const { body } = req;
+    if(body.estadoId==0)
+    {
+      const estados = await models.Estado.findAll({
+        include: [{ model: models.Municipio }]});
+      res.send(estados);
+    }
+  } catch (error) {
+    logger.error(error);
+    res.status(500).send(false);
+  }
+};
+export { createUser, login, validateCode, changePassword, updateUser, consultaPersona, consultaEstado };

@@ -47,4 +47,6 @@ router.post('/child/:childId/gallery', multipleUpload, child.uploadGallery);
 
 router.post('/persona', user.consultaPersona);
 
+router.post('/estados', user.consultaEstado);
+
 export default router;

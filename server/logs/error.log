@@ -108,3 +108,76 @@
 {"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
 {"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
 {"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4058,"code":"ENOENT","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads\\sdf","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"errno":-4048,"code":"EPERM","syscall":"unlink","path":"C:\\Users\\Pedro MR\\Documents\\GitHub\\ambarAlert_api\\server\\public\\uploads","level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"_original":{"idPadre":4,"idCabello":"","idOjos":"","nombre":"","apPaterno":"","apMaterno":"","fechaNacimiento":"","genero":"","estatura":"","peso":"","discapacidad":"","padecimiento":"","seniaParticular":""},"details":[{"message":"\"idCabello\" must be a number","path":["idCabello"],"type":"number.base","context":{"label":"idCabello","value":"","key":"idCabello"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{"municipioId":1},"details":[{"message":"\"nombre\" is required","path":["nombre"],"type":"any.required","context":{"label":"nombre","key":"nombre"}}],"level":"error"}
+{"_original":{"municipioId":"1","nombre":"ddd"},"details":[{"message":"\"apPaterno\" is required","path":["apPaterno"],"type":"any.required","context":{"label":"apPaterno","key":"apPaterno"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"email\" is required","path":["email"],"type":"any.required","context":{"label":"email","key":"email"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"email\" is required","path":["email"],"type":"any.required","context":{"label":"email","key":"email"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"email\" is required","path":["email"],"type":"any.required","context":{"label":"email","key":"email"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"email\" is required","path":["email"],"type":"any.required","context":{"label":"email","key":"email"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"_original":{},"details":[{"message":"\"municipioId\" is required","path":["municipioId"],"type":"any.required","context":{"label":"municipioId","key":"municipioId"}}],"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"level":"error"}
+{"_original":{"estadoId":1,"municipioId":4,"nombre":"Rubicel update","apPaterno":"Vera update","apMaterno":"Garcia","direccion":"Desconocido"},"details":[{"message":"\"estadoId\" is not allowed","path":["estadoId"],"type":"object.unknown","context":{"child":"estadoId","label":"estadoId","value":1,"key":"estadoId"}}],"level":"error"}
+{"_original":{"estadoId":1,"municipioId":4,"nombre":"Rubicel update","apPaterno":"Vera update","apMaterno":"Garcia","direccion":"Desconocido"},"details":[{"message":"\"estadoId\" is not allowed","path":["estadoId"],"type":"object.unknown","context":{"child":"estadoId","label":"estadoId","value":1,"key":"estadoId"}}],"level":"error"}
+{"_original":{"password":"a","email":"a"},"details":[{"message":"\"email\" must be a valid email","path":["email"],"type":"string.email","context":{"value":"a","invalids":["a"],"label":"email","key":"email"}}],"level":"error"}
+{"_original":{"password":"xxxxxxx","email":"asassa"},"details":[{"message":"\"email\" must be a valid email","path":["email"],"type":"string.email","context":{"value":"asassa","invalids":["asassa"],"label":"email","key":"email"}}],"level":"error"}
+{"_original":{"password":"xxxxxxx","email":"asassa"},"details":[{"message":"\"email\" must be a valid email","path":["email"],"type":"string.email","context":{"value":"asassa","invalids":["asassa"],"label":"email","key":"email"}}],"level":"error"}
+{"_original":{"password":"dddd","email":"ddd"},"details":[{"message":"\"email\" must be a valid email","path":["email"],"type":"string.email","context":{"value":"ddd","invalids":["ddd"],"label":"email","key":"email"}}],"level":"error"}
+{"_original":{"password":"rrrr","email":"errre"},"details":[{"message":"\"email\" must be a valid email","path":["email"],"type":"string.email","context":{"value":"errre","invalids":["errre"],"label":"email","key":"email"}}],"level":"error"}
+{"_original":{"password":"sssss","email":"www"},"details":[{"message":"\"email\" must be a valid email","path":["email"],"type":"string.email","context":{"value":"www","invalids":["www"],"label":"email","key":"email"}}],"level":"error"}
+{"_original":{"password":"ddd","email":"ddd"},"details":[{"message":"\"email\" must be a valid email","path":["email"],"type":"string.email","context":{"value":"ddd","invalids":["ddd"],"label":"email","key":"email"}}],"level":"error"}
+{"_original":{"password":"lllllol","email":"lll"},"details":[{"message":"\"email\" must be a valid email","path":["email"],"type":"string.email","context":{"value":"lll","invalids":["lll"],"label":"email","key":"email"}}],"level":"error"}
+{"_original":{"password":"k","email":"l"},"details":[{"message":"\"email\" must be a valid email","path":["email"],"type":"string.email","context":{"value":"l","invalids":["l"],"label":"email","key":"email"}}],"level":"error"}
