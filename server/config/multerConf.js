@@ -2,7 +2,7 @@ import multer from 'multer';
 import path from 'path';
 import uuidv1 from 'uuid/v1';
 
-const authTypes = ['image/jpeg', 'image/png'];
+const authTypes = ['image/jpg', 'image/jpeg', 'image/png'];
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {

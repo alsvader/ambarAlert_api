@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import inputValidation from '../middlewares/inputValidation';
-import { user, child } from '../controllers';
+import { user, child, denuncia } from '../controllers';
 import { pdfUpload, imageUpload, multipleUpload } from '../config/multerConf';
 
 const router = Router();
@@ -42,5 +42,20 @@ router.post('/child/:childId/curp', pdfUpload, child.uploadCurp);
 router.post('/child/:childId/imgProfil', imageUpload, child.uploadProfile);
 
 router.post('/child/:childId/gallery', multipleUpload, child.uploadGallery);
+
+/** Denuncia */
+router.get('/denuncia', denuncia.getAll);
+
+router
+  .route('/denuncia')
+  .post(inputValidation('denunciaSchema'), denuncia.createDenuncia);
+
+router.post(
+  '/denuncia/:denunciaId/update',
+  inputValidation('denunciaSchema'),
+  denuncia.updateDenuncia
+);
+
+router.post('/denuncia/:denunciaId/status/:statusId', denuncia.changeStatus);
 
 export default router;
