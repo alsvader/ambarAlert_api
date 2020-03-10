@@ -2,6 +2,7 @@ import { Router } from 'express';
 import inputValidation from '../middlewares/inputValidation';
 import { user, child, denuncia } from '../controllers';
 import { pdfUpload, imageUpload } from '../config/multerConf';
+import keys from '../config/keys';
 
 const router = Router();
 
@@ -62,5 +63,11 @@ router.post(
   '/denuncia/:denunciaId/dependencia/:dependenciaId',
   denuncia.setToAmber
 );
+
+/** Get Storage url */
+router.get('/getStorageUrl', (req, res) => {
+  const storageUrl = `${keys.backendHost}${keys.storageName}/`;
+  res.send({ storageUrl });
+});
 
 export default router;
