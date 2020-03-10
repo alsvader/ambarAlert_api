@@ -26,9 +26,11 @@ router.post(
   user.changePassword
 );
 
-router.put('/user/:userId', inputValidation('updateUser'), user.updateUser);
+router.post('/user/:userId', inputValidation('updateUser'), user.updateUser);
 
 router.post('/child', inputValidation('childSchema'), child.createChild);
+
+router.post('/child/mychilds', child.getMyChilds);
 
 router
   .route('/child/:childId')
@@ -69,5 +71,9 @@ router.get('/getStorageUrl', (req, res) => {
   const storageUrl = `${keys.backendHost}${keys.storageName}/`;
   res.send({ storageUrl });
 });
+
+router.post('/persona', user.consultaPersona);
+
+router.post('/estados', user.consultaEstado);
 
 export default router;

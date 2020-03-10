@@ -28,10 +28,34 @@ const getById = async (req, res) => {
   }
 };
 
-const createChild = async (req, res) => {
+const getMyChilds = async (req, res) => {
   try {
     const { body } = req;
 
+    const childs = await models.Hijo.findAll({
+      include: [
+        { model: models.CatOjos },
+        { model: models.CatCabello },
+        { model: models.FotosHijo }
+      ],
+      where: {
+        usuarioId: body.usuarioId,
+        statusDeleted: false
+      }
+    });
+
+    if (!childs) return res.status(404).send([]);
+
+    res.send(childs);
+  } catch (error) {
+    logger.error(error);
+    res.status(500).send('An internal server error occurred');
+  }
+};
+
+const createChild = async (req, res) => {
+  try {
+    const { body } = req;
     const user = await models.Usuario.findOne({
       where: {
         id: body.idPadre,
@@ -136,10 +160,18 @@ const updateChild = async (req, res) => {
     child.usuarioId = body.idPadre;
     await child.save();
 
-    res.send('Child has been updated');
+    const resultado = {
+      guardado: true,
+      child
+    };
+
+    res.send(resultado);
   } catch (error) {
     logger.error(error);
-    res.status(500).send('An internal server error occurred');
+    res.status(500).send({
+      guardado: false,
+      child: 'An internal server error occurred'
+    });
   }
 };
 
@@ -159,7 +191,7 @@ const deleteChild = async (req, res) => {
     child.statusDeleted = true;
     await child.save();
 
-    res.send('Child has been deleted');
+    res.send(true);
   } catch (error) {
     logger.error(error);
     res.status(500).send('An internal server error occurred');
@@ -273,7 +305,7 @@ const uploadProfile = async (req, res) => {
     child.foto = req.file.filename;
     await child.save();
 
-    res.send('uploaded');
+    res.send(JSON.stringify({ guardado: true }));
   } catch (error) {
     logger.error(error);
     res.status(500).send('An internal server error occurred');
@@ -283,7 +315,6 @@ const uploadProfile = async (req, res) => {
 const uploadGallery = async (req, res) => {
   try {
     const { params } = req;
-
     const child = await models.Hijo.findOne({
       where: {
         id: params.childId,
@@ -316,5 +347,6 @@ export {
   uploadActa,
   uploadCurp,
   uploadProfile,
-  uploadGallery
+  uploadGallery,
+  getMyChilds
 };

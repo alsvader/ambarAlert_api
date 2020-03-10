@@ -41,7 +41,8 @@ const pdfUpload = multer({
 const imageUpload = multer({
   storage,
   limits: {
-    fileSize: 5242880
+   // fileSize: 5242880
+    fileSize: 1000000000
   },
   fileFilter: imageFilter
 }).single('fileImage');
