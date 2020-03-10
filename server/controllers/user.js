@@ -6,7 +6,7 @@ import { getEmailTemplate, sendMail } from '../utils/email';
 
 const createUser = async (req, res) => {
   try {
-    const { body } = req; 
+    const { body } = req;
     const saltRounds = 10;
     const hashPasword = await bcrypt.hash(body.password, saltRounds);
 
@@ -129,7 +129,6 @@ const login = async (req, res) => {
 };
 
 const validateCode = async (req, res) => {
-  console.log(req);
   try {
     const { body } = req;
 
@@ -142,10 +141,10 @@ const validateCode = async (req, res) => {
     if (!user) return res.status(404).send('User not found');
     if (body.code !== user.codigoConfirmacion)
       return res.status(400).send('The code you provided is not valid');
-    
-      user.codigoConfirmacion = null;
-      await user.save();
-    
+
+    user.codigoConfirmacion = null;
+    await user.save();
+
     res.send(true);
   } catch (error) {
     logger.error(error);
@@ -156,7 +155,6 @@ const validateCode = async (req, res) => {
 const changePassword = async (req, res) => {
   try {
     const { body, params } = req;
-console.log(params);
     const user = await models.Usuario.findOne({
       where: {
         id: params.userId,
@@ -182,10 +180,9 @@ console.log(params);
   }
 };
 
-const updateUser = async (req, res) => {  
+const updateUser = async (req, res) => {
   try {
     const { body, params } = req;
-    console.log(params);
     const user = await models.Usuario.findOne({
       include: [
         {
@@ -252,14 +249,13 @@ const updateUser = async (req, res) => {
 };
 
 const consultaPersona = async (req, res) => {
- 
   try {
     const { body } = req;
     const persona = await models.Persona.findOne({
       where: {
         id: body.userId
       }
-    });    
+    });
     const response = {
       nombre: persona.nombre,
       apPaterno: persona.apPaterno,
@@ -276,12 +272,12 @@ const consultaPersona = async (req, res) => {
 };
 
 const consultaEstado = async (req, res) => {
-  try {      
+  try {
     const { body } = req;
-    if(body.estadoId==0)
-    {
+    if (body.estadoId === 0) {
       const estados = await models.Estado.findAll({
-        include: [{ model: models.Municipio }]});
+        include: [{ model: models.Municipio }]
+      });
       res.send(estados);
     }
   } catch (error) {
@@ -289,4 +285,13 @@ const consultaEstado = async (req, res) => {
     res.status(500).send(false);
   }
 };
-export { createUser, login, validateCode, changePassword, updateUser, consultaPersona, consultaEstado };
+
+export {
+  createUser,
+  login,
+  validateCode,
+  changePassword,
+  updateUser,
+  consultaPersona,
+  consultaEstado
+};
