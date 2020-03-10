@@ -51,10 +51,15 @@ const login = async (req, res) => {
     const user = await models.Usuario.findOne({
       include: [
         {
+          model: models.Persona
+        },
+        {
           model: models.Hijo,
-          include: {
-            model: models.FotosHijo
-          }
+          include: [
+            { model: models.CatOjos },
+            { model: models.CatCabello },
+            { model: models.FotosHijo }
+          ]
         }
       ],
       where: {

@@ -8,7 +8,11 @@ const getById = async (req, res) => {
     const { params } = req;
 
     const child = await models.Hijo.findOne({
-      include: [{ model: models.CatOjos }, { model: models.CatCabello }],
+      include: [
+        { model: models.CatOjos },
+        { model: models.CatCabello },
+        { model: models.FotosHijo }
+      ],
       where: {
         id: params.childId,
         statusDeleted: false
