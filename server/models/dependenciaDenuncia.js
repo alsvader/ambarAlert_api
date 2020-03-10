@@ -7,7 +7,7 @@ const dependenciaDenuncia = (sequelize, DataTypes) => {
     }
   });
 
-  DependenciaDenuncia.accosiate = models => {
+  DependenciaDenuncia.associate = models => {
     DependenciaDenuncia.hasMany(models.SeguimientoDenuncia);
   };
 

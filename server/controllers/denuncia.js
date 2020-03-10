@@ -19,7 +19,8 @@ const getAll = async (req, res) => {
           ]
         },
         { model: models.Municipio },
-        { model: models.Estatus }
+        { model: models.Estatus },
+        { model: models.Dependencia }
       ],
       where: {
         estatusId: 2,

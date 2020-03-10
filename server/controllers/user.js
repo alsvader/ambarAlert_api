@@ -59,15 +59,12 @@ const login = async (req, res) => {
             { model: models.CatCabello },
             { model: models.FotosHijo }
           ]
-        },
-        { model: models.Denuncia }
+        }
       ],
       where: {
         email: body.email
       }
     });
-
-    logger.info(JSON.stringify(user));
 
     if (!user) res.status(400).send('User not found');
 
@@ -97,13 +94,33 @@ const login = async (req, res) => {
     user.codigoConfirmacion = generatedToken;
     await user.save();
 
+    const denuncias = await models.Denuncia.findAll({
+      include: [
+        {
+          model: models.Hijo,
+          include: [
+            { model: models.CatOjos },
+            { model: models.CatCabello },
+            { model: models.FotosHijo }
+          ]
+        },
+        { model: models.Municipio },
+        { model: models.Estatus },
+        { model: models.Dependencia }
+      ],
+      where: {
+        usuarioId: user.id
+      }
+    });
+
     const response = {
       id: user.id,
       email: user.email,
       numCelular: user.numCelular,
       rolId: user.rolId,
       lastLogin: user.lastLogin,
-      children: user.hijos
+      children: user.hijos,
+      denuncias
     };
 
     res.send(response);
