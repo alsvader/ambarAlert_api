@@ -41,6 +41,7 @@ const usuario = (sequelize, DataTypes) => {
     Usuario.belongsTo(models.Rol);
     Usuario.belongsTo(models.Dependencia, { foreignKey: { allowNull: true } });
     Usuario.hasMany(models.Hijo);
+    Usuario.hasMany(models.Denuncia);
     Usuario.hasOne(models.Persona, { foreignKey: 'id' });
   };
 

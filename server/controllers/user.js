@@ -50,9 +50,8 @@ const login = async (req, res) => {
 
     const user = await models.Usuario.findOne({
       include: [
-        {
-          model: models.Persona
-        },
+        { model: models.Persona },
+        { model: models.Rol },
         {
           model: models.Hijo,
           include: [
@@ -60,7 +59,8 @@ const login = async (req, res) => {
             { model: models.CatCabello },
             { model: models.FotosHijo }
           ]
-        }
+        },
+        { model: models.Denuncia }
       ],
       where: {
         email: body.email

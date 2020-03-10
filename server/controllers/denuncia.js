@@ -5,15 +5,28 @@ const getAll = async (req, res) => {
   try {
     const denuncias = await models.Denuncia.findAll({
       include: [
-        { model: models.Usuario },
-        { model: models.Hijo },
+        {
+          model: models.Usuario,
+          attributes: ['id', 'numCelular', 'email', 'lastLogin', 'rolId'],
+          include: [{ model: models.Persona }, { model: models.Rol }]
+        },
+        {
+          model: models.Hijo,
+          include: [
+            { model: models.CatOjos },
+            { model: models.CatCabello },
+            { model: models.FotosHijo }
+          ]
+        },
         { model: models.Municipio },
         { model: models.Estatus }
       ],
       where: {
-        estatusId: 2
+        estatusId: 2,
+        amberStatus: true
       }
     });
+
     res.send(denuncias);
   } catch (error) {
     logger.error(error);
@@ -46,13 +59,14 @@ const createDenuncia = async (req, res) => {
       municipioId: body.municipioId,
       usuarioId: body.usuarioId,
       hijoId: body.hijoId,
-      estatusId: 1,
+      estatusId: 2,
       latitud: body.latitud,
       longitud: body.longitud,
       descripcion: body.descripcion,
       vestuario: body.vestuario,
       fechaDesaparecio: body.fechaDesaparecio,
-      direccionDesaparecio: body.direccionDesaparecio
+      direccionDesaparecio: body.direccionDesaparecio,
+      folioDenuncia: body.folioDenuncia
     });
 
     res.send(denuncia);
@@ -96,6 +110,8 @@ const updateDenuncia = async (req, res) => {
     denuncia.vestuario = body.vestuario;
     denuncia.fechaDesaparecio = body.fechaDesaparecio;
     denuncia.direccionDesaparecio = body.direccionDesaparecio;
+    denuncia.folioDenuncia = body.folioDenuncia;
+
     await denuncia.save();
 
     res.send(denuncia);
@@ -132,4 +148,42 @@ const changeStatus = async (req, res) => {
   }
 };
 
-export { getAll, createDenuncia, updateDenuncia, changeStatus };
+const setToAmber = async (req, res) => {
+  try {
+    const { params } = req;
+
+    const denuncia = await models.Denuncia.findByPk(params.denunciaId);
+
+    if (!denuncia) return res.status(404).send('Denuncia not found');
+
+    const dependencia = await models.Dependencia.findByPk(params.dependenciaId);
+
+    if (!dependencia) return res.status(404).send('Dependencia not found');
+
+    const denunciaDep = await models.DependenciaDenuncia.findOne({
+      where: {
+        denunciumId: denuncia.id,
+        dependenciumId: dependencia.id
+      }
+    });
+
+    if (!denunciaDep) {
+      logger.info('NO EXISTE');
+      const associationCreated = await models.DependenciaDenuncia.create({
+        denunciumId: denuncia.id,
+        dependenciumId: dependencia.id
+      });
+
+      denuncia.amberStatus = true;
+      await denuncia.save();
+      res.send(associationCreated);
+    }
+
+    res.status(400).send('Item has already been set to amber alert');
+  } catch (error) {
+    logger.error(error);
+    res.status(500).send('An internal server error occurred');
+  }
+};
+
+export { getAll, createDenuncia, updateDenuncia, changeStatus, setToAmber };

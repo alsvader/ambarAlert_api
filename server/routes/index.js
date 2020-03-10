@@ -58,4 +58,9 @@ router.post(
 
 router.post('/denuncia/:denunciaId/status/:statusId', denuncia.changeStatus);
 
+router.post(
+  '/denuncia/:denunciaId/dependencia/:dependenciaId',
+  denuncia.setToAmber
+);
+
 export default router;

@@ -32,5 +32,10 @@ export default Joi.object({
     .trim()
     .not()
     .empty()
+    .required(),
+  folioDenuncia: Joi.string()
+    .trim()
+    .not()
+    .empty()
     .required()
 });
