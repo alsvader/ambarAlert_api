@@ -1,7 +1,8 @@
 import { Router } from 'express';
 import inputValidation from '../middlewares/inputValidation';
-import { user, child } from '../controllers';
-import { pdfUpload, imageUpload, multipleUpload } from '../config/multerConf';
+import { user, child, denuncia } from '../controllers';
+import { pdfUpload, imageUpload } from '../config/multerConf';
+import keys from '../config/keys';
 
 const router = Router();
 
@@ -41,9 +42,35 @@ router.post('/child/:childId/acta', pdfUpload, child.uploadActa);
 
 router.post('/child/:childId/curp', pdfUpload, child.uploadCurp);
 
-router.post('/child/:childId/imgProfil', imageUpload, child.uploadProfile);
+router.post('/child/:childId/imgProfile', imageUpload, child.uploadProfile);
 
-router.post('/child/:childId/gallery', multipleUpload, child.uploadGallery);
+router.post('/child/:childId/gallery', imageUpload, child.uploadGallery);
+
+/** Denuncia */
+router.get('/denuncia', denuncia.getAll);
+
+router
+  .route('/denuncia')
+  .post(inputValidation('denunciaSchema'), denuncia.createDenuncia);
+
+router.post(
+  '/denuncia/:denunciaId/update',
+  inputValidation('denunciaSchema'),
+  denuncia.updateDenuncia
+);
+
+router.post('/denuncia/:denunciaId/status/:statusId', denuncia.changeStatus);
+
+router.post(
+  '/denuncia/:denunciaId/dependencia/:dependenciaId',
+  denuncia.setToAmber
+);
+
+/** Get Storage url */
+router.get('/getStorageUrl', (req, res) => {
+  const storageUrl = `${keys.backendHost}${keys.storageName}/`;
+  res.send({ storageUrl });
+});
 
 router.post('/persona', user.consultaPersona);
 

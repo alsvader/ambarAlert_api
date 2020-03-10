@@ -28,6 +28,10 @@ const denuncia = (sequelize, DataTypes) => {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       defaultValue: false
+    },
+    folioDenuncia: {
+      type: DataTypes.STRING,
+      allowNull: false
     }
   });
 

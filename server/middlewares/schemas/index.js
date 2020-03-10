@@ -4,6 +4,7 @@ import validateCodeSchema from './validateCodeSchema';
 import changePassword from './changePassword';
 import updateUser from './updateUser';
 import childSchema from './childSchema';
+import denunciaSchema from './denunciaSchema';
 
 const chooseSchema = schema => {
   let val = null;
@@ -25,6 +26,9 @@ const chooseSchema = schema => {
       break;
     case 'childSchema':
       val = childSchema;
+      break;
+    case 'denunciaSchema':
+      val = denunciaSchema;
       break;
     default:
       val = null;
