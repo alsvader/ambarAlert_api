@@ -1,12 +1,17 @@
 import multer from 'multer';
 import path from 'path';
+import fs from 'fs';
 import uuidv1 from 'uuid/v1';
 
 const authTypes = ['image/jpg', 'image/jpeg', 'image/png'];
 
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    cb(null, path.join(__dirname, '../public/uploads'));
+    const dirname = path.resolve(__dirname, '../public/uploads');
+    if (!fs.existsSync(dirname)) {
+      fs.mkdirSync(dirname);
+    }
+    cb(null, dirname);
   },
   filename: (req, file, cb) => {
     cb(null, uuidv1() + path.extname(file.originalname));
@@ -41,12 +46,4 @@ const imageUpload = multer({
   fileFilter: imageFilter
 }).single('fileImage');
 
-const multipleUpload = multer({
-  storage,
-  limits: {
-    fileSize: 5242880
-  },
-  fileFilter: imageFilter
-}).array('images');
-
-export { pdfUpload, imageUpload, multipleUpload };
+export { pdfUpload, imageUpload };

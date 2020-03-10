@@ -1,8 +1,7 @@
 import path from 'path';
+import fs from 'fs';
 import logger from '../config/logger';
 import models from '../models';
-
-const fs = require('fs').promises;
 
 const getById = async (req, res) => {
   try {
@@ -177,15 +176,20 @@ const uploadActa = async (req, res) => {
     });
 
     if (!child) {
-      const resolve = await fs.unlink(req.file.path);
-      logger.info(resolve);
+      fs.unlinkSync(req.file.path);
       return res.status(404).send('Child not found');
     }
 
-    if (child.actaNacimiento !== null) {
-      await fs.unlink(
-        path.join(__dirname, `../public/uploads/${child.actaNacimiento}`)
-      );
+    const filename =
+      child.actaNacimiento === null || child.actaNacimiento === ''
+        ? null
+        : child.actaNacimiento;
+
+    const pathFile = path.resolve(__dirname, `../public/uploads/${filename}`);
+    logger.info(pathFile);
+
+    if (fs.existsSync(pathFile)) {
+      fs.unlinkSync(pathFile);
     }
 
     child.actaNacimiento = req.file.filename;
@@ -212,13 +216,18 @@ const uploadCurp = async (req, res) => {
     });
 
     if (!child) {
-      const resolve = await fs.unlink(req.file.path);
-      logger.info(resolve);
+      fs.unlinkSync(req.file.path);
       return res.status(404).send('Child not found');
     }
 
-    if (child.curp !== null) {
-      await fs.unlink(path.join(__dirname, `../public/uploads/${child.curp}`));
+    const filename =
+      child.curp === null || child.curp === '' ? null : child.curp;
+
+    const pathFile = path.resolve(__dirname, `../public/uploads/${filename}`);
+    logger.info(pathFile);
+
+    if (fs.existsSync(pathFile)) {
+      fs.unlinkSync(pathFile);
     }
 
     child.curp = req.file.filename;
@@ -243,13 +252,18 @@ const uploadProfile = async (req, res) => {
     });
 
     if (!child) {
-      const resolve = await fs.unlink(req.file.path);
-      logger.info(resolve);
+      fs.unlinkSync(req.file.path);
       return res.status(404).send('Child not found');
     }
 
-    if (child.foto !== null) {
-      await fs.unlink(path.join(__dirname, `../public/uploads/${child.foto}`));
+    const filename =
+      child.foto === null || child.foto === '' ? null : child.foto;
+
+    const pathFile = path.resolve(__dirname, `../public/uploads/${filename}`);
+    logger.info(pathFile);
+
+    if (fs.existsSync(pathFile)) {
+      fs.unlinkSync(pathFile);
     }
 
     child.foto = req.file.filename;
@@ -274,26 +288,16 @@ const uploadGallery = async (req, res) => {
     });
 
     if (!child) {
-      req.files.forEach(async element => {
-        await fs.unlink(element.path);
-      });
+      fs.unlinkSync(req.file.path);
       return res.status(404).send('Child not found');
     }
 
-    let i;
-    const results = [];
-    for (i = 0; i < req.files.length; i += 1) {
-      const image = models.FotosHijo.create({
-        foto: req.files[i].filename,
-        hijoId: params.childId
-      });
-      results.push(image);
-    }
+    const image = await models.FotosHijo.create({
+      foto: req.file.filename,
+      hijoId: params.childId
+    });
 
-    const response = await Promise.all(results);
-    logger.info(JSON.stringify(response, {}, 2));
-
-    res.send(response);
+    res.send(image);
   } catch (error) {
     logger.error(error);
     res.status(500).send('An internal server error occurred');

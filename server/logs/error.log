@@ -9,3 +9,7 @@
 {"_original":{"municipioId":1,"usuarioId":1,"hijoId":1,"latitud":"latitud","longitud":"longitud","description":"a description","vestuario":"vestuario","fechaDesaparecio":"2020/03/02","direccionDesaparecio":"direccion desaparecio","amberStatus":false},"details":[{"message":"\"estatusId\" is required","path":["estatusId"],"type":"any.required","context":{"label":"estatusId","key":"estatusId"}}],"level":"error"}
 {"_original":{"idPadre":8,"idCabello":1,"idOjos":1,"nombre":"nombre","apPaterno":"apellido paterno","apMaterno":"apellido materno","fechaNacimiento":"1993/04/09","genero":"Hombre|Mujer","estatura":"1.72","peso":"80","discapacidad":"discapacidad","padecimiento":"padecimiento","seniaParticular":"seña particular"},"details":[{"message":"\"genero\" must be one of [Hombre, Mujer]","path":["genero"],"type":"any.only","context":{"valids":["Hombre","Mujer"],"label":"genero","value":"Hombre|Mujer","key":"genero"}}],"level":"error"}
 {"level":"error"}
+{"errno":-2,"code":"ENOENT","syscall":"unlink","path":"/Users/a0l01ge/Documents/personales/ambarAlert_api/server/public/uploads/30ba9390-62e8-11ea-99ff-17dbf69f7bd4.png","level":"error"}
+{"code":"ERR_INVALID_CALLBACK","level":"error"}
+{"errno":-2,"syscall":"unlink","code":"ENOENT","path":"/Users/a0l01ge/Documents/personales/ambarAlert_api/server/public/uploads/0a1ad700-62e7-11ea-95b6-57c30347f907.pdf","level":"error"}
+{"errno":-2,"syscall":"unlink","code":"ENOENT","path":"/Users/a0l01ge/Documents/personales/ambarAlert_api/server/public/uploads/0a1ad700-62e7-11ea-95b6-57c30347f907.pdf","level":"error"}
