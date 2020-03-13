@@ -4,8 +4,9 @@
   "description": "This is the api for the amber alert app",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon --exec babel-node -r dotenv/config index.js",
+    "start": "babel-node -r dotenv/config index.js",
     "dev": "nodemon --exec babel-node -r dotenv/config index.js",
+    "build": "",
     "eslint": "eslint .",
     "seeds": "babel-node -r dotenv/config -- server/seeds/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"

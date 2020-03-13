@@ -35,12 +35,10 @@ const sendMail = async (emailTo, subject, body, attachments = []) => {
       keys.env === 'development' ? await nodemailer.createTestAccount() : null;
 
     const transport = await nodemailer.createTransport({
-      host: keys.emailHost || 'smtp.ethereal.email',
-      port: keys.emailPort || 587,
-      secure: keys.emailSecure || false,
+      service: 'gmail',
       auth: {
-        user: keys.emailUser || testAccound.user,
-        pass: keys.passwordemailUser || testAccound.pass
+        user: keys.emailUser,
+        pass: keys.passwordemailUser
       }
     });
 
