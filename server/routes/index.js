@@ -47,7 +47,7 @@ router.post('/child/:childId/imgProfile', imageUpload, child.uploadProfile);
 router.post('/child/:childId/gallery', imageUpload, child.uploadGallery);
 
 /** Denuncia */
-router.get('/denuncia', denuncia.getAll);
+router.post('/denunciaAll', denuncia.getAll);
 
 router
   .route('/denuncia')
@@ -75,5 +75,9 @@ router.get('/getStorageUrl', (req, res) => {
 router.post('/persona', user.consultaPersona);
 
 router.post('/estados', user.consultaEstado);
+
+router.post('/denunciaChild', denuncia.consultaDenuncia);
+
+router.post('/dependncias', denuncia.consultaDependencia);
 
 export default router;

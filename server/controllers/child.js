@@ -305,10 +305,10 @@ const uploadProfile = async (req, res) => {
     child.foto = req.file.filename;
     await child.save();
 
-    res.send(JSON.stringify({ guardado: true }));
+    res.send(JSON.stringify({ guardado: true, foto: child.foto}));
   } catch (error) {
     logger.error(error);
-    res.status(500).send('An internal server error occurred');
+    res.status(500).send(JSON.stringify({ guardado: false, foto: 'Error en el servidor'}));
   }
 };
 
