@@ -1,0 +1,8 @@
+{
+  "appService.zipIgnorePattern": [
+    "node_modules{,/**}",
+    ".vscode{,/**}"
+  ],
+  "appService.defaultWebAppToDeploy": "/subscriptions/18655b99-9e13-4644-9eef-05a17fa11d38/resourceGroups/appsvc_linux_centralus/providers/Microsoft.Web/sites/webalertamber",
+  "appService.deploySubpath": ""
+}
